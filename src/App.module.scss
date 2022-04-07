@@ -1,0 +1,170 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500&display=swap');
+
+h1, p, span, h2, h3 {
+  font-family: Fredoka, serif;
+}
+
+h1 {
+  font-size: 26px;
+  font-weight: 500;
+  margin: 5px;
+}
+
+p {
+  font-weight: 400;
+  font-size: 16px;
+}
+
+h2 {
+  font-weight: 300;
+  font-size: 46px;
+  margin: 10px;
+}
+
+@mixin flexible($justify) {
+  display: flex;
+  justify-content: $justify;
+}
+
+.appWindow {
+  background: white;
+  border-radius: 38px;
+  margin: 50px;
+  padding: 0 0 10px 0;
+}
+
+.header {
+  border-radius: 38px 38px 0 0;
+  padding: 24px 85px 0 85px;
+  background: #110E3c;
+}
+
+.detailInfo, .option {
+  @include flexible(space-between)
+}
+
+.detailInfo {
+  padding: 20px 40px 20px 40px;
+  align-items: center;
+}
+
+.searchForm {
+  @include flexible(start);
+  align-items: center;
+  gap: 10px;
+
+  .searchItem {
+    padding: 10px;
+    background: white;
+    border-radius: 20px;
+  }
+  .searchButton{
+    border-radius: 5px;
+    background: white;
+  }
+}
+
+.option {
+  color: white;
+}
+.weatherNow{
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  .weatherItemPhoto {
+    @include flexible(start);
+    align-items: center;
+
+    img {
+      display: block;
+    }
+  }
+}
+
+.weatherCurrentDetailInfo {
+  @include flexible(start);
+  align-items: center;
+
+  p {
+    margin: 7px;
+  }
+
+  img {
+    display: block;
+    width: 24px;
+    height: 24px;
+  }
+}
+
+.active {
+  background: #e5e5e5;
+  box-shadow: rgba(227, 227, 227, 0.4) 0 5px, rgba(167, 167, 167, 0.3) 0 10px, rgba(171, 171, 171, 0.2) 0 15px, rgba(169, 169, 169, 0.1) 0 20px, rgba(240, 46, 170, 0.05) 0 25px;
+  transition: all 0.3s ease-in-out;
+}
+.unactive{
+  background: #F0F0F0;
+  transition: all 0.3s ease-in-out;
+}
+.tittle {
+  cursor: pointer;
+  margin: 0 0 20px 0;
+  padding: 20px 40px 20px 40px;
+  @include flexible(space-between);
+  transition: background-color 0.3s ease-in-out;
+
+  .astroInfoItem {
+    margin: 0 0 20px 0;
+    @include flexible(center);
+    gap: 50px;
+  }
+  img{
+    margin: 0 20px 0 0;
+  }
+}
+
+.tittle:hover {
+  background: #e5e5e5;
+  box-shadow: rgba(227, 227, 227, 0.4) 0 5px, rgba(167, 167, 167, 0.3) 0 10px, rgba(171, 171, 171, 0.2) 0 15px, rgba(169, 169, 169, 0.1) 0 20px, rgba(240, 46, 170, 0.05) 0 25px;
+  transition: all 0.3s ease-in-out;
+}
+
+.powered {
+  text-align: center;
+}
+.weatherCarousel{
+  cursor: grab;
+  overflow: hidden;
+}
+.weatherInHour{
+  cursor: pointer;
+  padding: 0 40px 0 40px;
+  @include flexible(start);
+  gap: 20px;
+  height:200px;
+  text-align: center;
+  img{
+    pointer-events: none;
+  }
+  animation: ease-in-out opacity 0.3s;
+}
+.fetching{
+  opacity: 0.5;
+}
+.initializeApp{
+  padding: 15% 0 0 0;
+  text-align:center;
+  .loader{
+    background:white;
+    border-radius:50%;
+    text-align:center;
+  }
+}
+
+@keyframes opacity {
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}
